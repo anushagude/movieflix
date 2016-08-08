@@ -1,0 +1,74 @@
+/* Styles go here */
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+    cursor: pointer;
+
+}
+
+
+
+a:hover,
+a:active {
+    color: #00B7FF;
+
+    text-decoration: underline;
+}
+
+a.danger {
+    color: red;
+}
+
+
+body,html {
+    background: url(http://alivecampus.com/wp-content/uploads/2013/12/movie-montage.jpg) transparent;
+    opacity: 1.0;
+    color: #fff;
+}
+
+nav {
+    float:right;
+    width: auto;
+    height: auto;
+}
+
+
+article{
+    background-color:#F5F5F5;
+    width: 400px;
+    height: 350px;
+    margin:auto;
+    padding:20px;
+    color: #000000;
+    text-shadow:0 0px 0 black;
+}
+input{
+    width: 350px;
+    height: 30px;
+}
+
+button{
+    width: 350px;
+    height: 40px;
+    padding: 10px 24px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: medium;
+    border: 2px solid deepskyblue;
+    background-color: white;
+}
+button:hover{
+    background-color: deepskyblue;
+}
+
+label{
+    font-size: large;
+}
+h1{
+  font-style: oblique;
+   color: red;
+
+}
