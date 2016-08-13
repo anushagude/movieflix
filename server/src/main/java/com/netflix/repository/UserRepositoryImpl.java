@@ -24,6 +24,8 @@ public class UserRepositoryImpl implements UserRepository {
 	@Override
 	public UserTitleReviews findOneReview(String userId, String movieId) {
 		TypedQuery<UserTitleReviews> query = em.createNamedQuery("UserTitleReviews.findOne", UserTitleReviews.class);
+		query.setParameter("userId", userId);
+		query.setParameter("movieId", movieId);
 		return query.getSingleResult();
 	}
 

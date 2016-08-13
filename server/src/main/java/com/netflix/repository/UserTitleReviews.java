@@ -12,26 +12,21 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table
-@NamedQueries({
-	@NamedQuery(name = "UserTitleReviews.findAll", query = "SELECT e FROM UserTitleReviews e"),
-	@NamedQuery(name = "UserTitleReviews.findOne", query = "SELECT e FROM UserTitleReviews e where e.userId = :userId and e.movieId = :movieId")
-	 
+@NamedQueries({ @NamedQuery(name = "UserTitleReviews.findAll", query = "SELECT e FROM UserTitleReviews e"),
+		@NamedQuery(name = "UserTitleReviews.findOne", query = "SELECT e FROM UserTitleReviews e where e.userId = :userId and e.movieId = :movieId")
+
 })
 public class UserTitleReviews {
 
 	@Id
 	@Column(name = "reviewId")
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+	@GeneratedValue(generator = "uuid2")
+	@GenericGenerator(name = "uuid2", strategy = "uuid2")
 	private String reviewId;
 	private int rating;
 	private String reviews;
-	
 	private String userId;
-	
 	private String movieId;
-	
-	
 
 	public int getRating() {
 		return rating;
@@ -48,8 +43,6 @@ public class UserTitleReviews {
 	public void setReviews(String reviews) {
 		this.reviews = reviews;
 	}
-
-	
 
 	@Override
 	public String toString() {
@@ -81,7 +74,4 @@ public class UserTitleReviews {
 		this.movieId = movieId;
 	}
 
-	
-	
-	
 }
