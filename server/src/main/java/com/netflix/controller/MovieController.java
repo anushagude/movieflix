@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.MediaType;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.netflix.exception.EntityNotFoundException;
 import com.netflix.repository.Movie;
 import com.netflix.services.MovieService;
 
@@ -24,7 +24,6 @@ import com.netflix.services.MovieService;
 @ComponentScan({"com.netflix.services","com.netflix.repository"})
 @RestController
 @RequestMapping(path = "movies")
-@EntityScan("com.netflix.repository")
 @EnableJpaRepositories("com.netflix.repository")
 @EnableAutoConfiguration
 public class MovieController {
@@ -48,7 +47,11 @@ public class MovieController {
 	
 	@RequestMapping(method = RequestMethod.GET, path = "{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Movie findOne(@PathVariable("id") String Id) {
-		return movieSvc.findOne(Id);
+		Movie lookedUpVal = movieSvc.findOne(Id);
+		if(lookedUpVal == null) {
+			throw new EntityNotFoundException(String.format("Movie with id %s not found", Id));
+		}
+		return lookedUpVal;
 	}
 
 	@RequestMapping(method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE, "application/json"}, consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE, "application/json"})
@@ -58,11 +61,19 @@ public class MovieController {
 
 	@RequestMapping(method = RequestMethod.PUT, path = "{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Movie update(@PathVariable("id") String Id, @RequestBody Movie movie) {
+		Movie lookedUpVal = movieSvc.findOne(Id);
+		if(lookedUpVal == null) {
+			throw new EntityNotFoundException(String.format("Movie with id %s not found for update operation", Id));
+		}
 		return movieSvc.update(Id, movie);
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, path = "{id}")
 	public void delete(@PathVariable("id") String Id) {
+		Movie lookedUpVal = movieSvc.findOne(Id);
+		if(lookedUpVal == null) {
+			throw new EntityNotFoundException(String.format("Movie with id %s not found for delete operation", Id));
+		}
 		movieSvc.delete(Id);
 	}
 
