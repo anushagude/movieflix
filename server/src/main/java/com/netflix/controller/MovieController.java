@@ -70,6 +70,10 @@ public class MovieController {
 
 	@RequestMapping(method = RequestMethod.DELETE, path = "{id}")
 	public void delete(@PathVariable("id") String Id) {
+		Movie lookedUpVal = movieSvc.findOne(Id);
+		if(lookedUpVal == null) {
+			throw new EntityNotFoundException(String.format("Movie with id %s not found for delete operation", Id));
+		}
 		movieSvc.delete(Id);
 	}
 
