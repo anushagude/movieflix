@@ -3,11 +3,10 @@ package com.netflix.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.netflix.repository.Country;
 import com.netflix.repository.Movie;
 import com.netflix.repository.MoviesRepository;
 
@@ -45,7 +44,6 @@ public class MovieServiceImpl implements MovieService{
 	@Override
 	@Transactional
 	public Movie create(Movie movie){
-		
 		return repository.create(movie);
 		
 	}

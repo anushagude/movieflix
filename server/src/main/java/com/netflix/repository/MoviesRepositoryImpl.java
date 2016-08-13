@@ -30,14 +30,16 @@ public class MoviesRepositoryImpl implements MoviesRepository{
 	}
 
 	@Override
-	public Movie create(Movie movie){
+	public Movie create(Movie movie){		
 		em.persist(movie);
 		return movie;
 	}
+	
 	@Override
 	public Movie update(Movie movie){
 		return em.merge(movie);
 	}
+	
 	@Override
 	public void delete(Movie movie){
 		em.remove(movie);
