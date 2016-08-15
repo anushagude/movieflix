@@ -1,0 +1,31 @@
+<form name="MovieDetails" ng-submit="addMoviesVm.addMovies()">
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="title" ng-model="addMoviesVm.newMovie.titleName" required>
+    </div>
+    <div class="form-group">
+        <label for="Year">Year</label>
+        <input type="text" class="form-control" id="year" name="year" placeholder="year" ng-model="addMoviesVm.newMovie.year" required>
+    </div>
+    <!--<div class="form-group">-->
+        <!--<label for="Rated">Rated</label>-->
+        <!--<input type="text" class="form-control" id="Rated" name="Rated" placeholder="Rated" ng-model="addMoviesVm.newMovie.Rated" required>-->
+    <!--</div>-->
+    <div class="form-group">
+        <label for="Released">Released</label>
+        <input type="date" class="form-control" id="released" name="released" placeholder="Released" ng-model="addMoviesVm.newMovie.released" required>
+    </div>
+    <div class="form-group">
+        <label for="Runtime">Runtime</label>
+        <input type="text" class="form-control" id="runTime" name="runTime" placeholder="Runtime" ng-model="addMoviesVm.newMovie.runTime" required>
+    </div>
+    <div class="form-group">
+        <label for="genreType">genreType</label>
+        <input type="text" class="form-control" id="genreType" name="genreType" placeholder="genreType" ng-model="addMoviesVm.newMovie.genre.genreType" required>
+    </div>
+    <!--<div class="form-group">-->
+        <!--<label for="Poster">Poster</label>-->
+        <!--<input type="url" class="form-control" id="poster" name="poster" placeholder="Poster" ng-model="addMoviesVm.newMovie.poster">-->
+    <!--</div>-->
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,23 @@
+/* Styles go here */
+
+img:hover {
+    opacity: 0.7;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    width:180px; /* Full width */
+    height:110px;
+}
+input{
+    width: 250px;
+    height: 20px;
+}
+header{
+    height:50px;
+    background-color:lightsalmon;
+    border-radius: 5px;
+}
+
+body{
+    background-color:lightgray;
+}

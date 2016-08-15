@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="movieflix">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body >
+<header>
+
+
+</header>
+
+<article>
+    <h1>Sign In</h1>
+    <section class="col-md-8 col-md-offset-2">
+        <div ng-app = "movieflix" ng-controller = "LoginController">
+            <form name="myForm" ng-submit="myForm.$setPristine(); submit();">
+                <div class="form-group">
+                    <label for="email">EMail: </label><br/>
+                    <input  type="email" id="email" placeholder="Enter Email" autofocus="autofocus" required><br/>
+                </div><br/>
+                <div>
+                    <label for="password">Password: </label><br/>
+                    <input type="password" id="password"  placeholder="Enter Password" autofocus="autofocus" required>
+
+                </div>
+                <nav>
+                <a ng-href="#/movies-list">Movie List</a><br/><br/>
+                </nav>
+                <a href="">Forgot your Email or Password?</a><br/><br/>
+
+                <button type="submit" class="btn btn-primary" >Sign Up</button>
+            </form>
+        </div>
+    </section>
+
+</article>
+
+
+
+</body>
+
+</html>

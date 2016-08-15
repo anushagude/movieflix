@@ -1,0 +1,33 @@
+<input type="text" class="form-control" placeholder="Search" ng-model="moviesListVm.search">
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Poster</th>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Rated</th>
+        <th>Runtime</th>
+        <th>Genre</th>
+        <th>IMDB Rating</th>
+        <th>IMDB Page</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="movie in moviesListVm.movies | filter:moviesListVm.searchText | orderBy:moviesListVm.sorter.sortBy: moviesListVm.sorter.sortOrder"
+        ng-mouseover="alert();moviesListVm.hoverIn();" ng-mouseleave="hoverOut();" >
+        <td>
+            <a ng-href="#/movie-detail/{{movie.id}}"><img class="Poster" ng-src="{{movie.poster}}" /></a>
+        </td>
+        <td>{{movie.titleName}}</td>
+        <td>{{movie.year}}</td>
+        <td>{{movie.Rated}}</td>
+        <td>{{movie.runTime}}</td>
+        <td><span ng-repeat="genreVal in movie.genre">
+            {{genreVal.genreType}} {{$last ? '' : ($index==movie.genre-2) ? ' and ' : ', '}}
+        </span></td>
+        <td>{{ movie.ratings.imdbRating }}</td>
+        <td><a ng-href="http://www.imdb.com/title/{{movie.ratings.imdbID}}/" target="_blank" >IMDB Page</a></td>
+
+    </tr>
+    </tbody>
+</table>
