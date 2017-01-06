@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="script.js"></script>
+    <h1>MovieFlix</h1>
+</head>
+<body>
+<header>
+
+    <nav>
+        <button type="submit" class="btn btn-primary" style="width:100px;">SignUp</button>
+        <button type="submit" class="btn btn-primary" style="width:100px;">Logout</button>
+    </nav>
+</header>
+
+<article>
+    <h1>Sign In</h1>
+    <section class="col-md-8 col-md-offset-2">
+
+        <form name="myForm">
+            <div class="form-group">
+                <label for="email">EMail: </label><br/>
+
+                <input  type="email" id="email" placeholder="Enter Email" autofocus="autofocus" required><br/>
+            </div><br/>
+            <div>
+                <label for="password">Password: </label><br/>
+                <input type="password" id="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" placeholder="Enter Password" autofocus="autofocus" required>
+
+            </div>
+            <a href="">Forgot your Email or Password?</a><br/><br/>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+    </section>
+</article>
+
+</body>
+
+</html>
